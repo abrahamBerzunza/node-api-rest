@@ -12,7 +12,9 @@ const createUser = userData => {
   return userService.createUser(userData);
 };
 
-const updateUserById = () => {};
+const updateUserById = (id, userData) => {
+  return userService.updateUserById(id, userData);
+};
 
 const deleteUserById = () => {};
 

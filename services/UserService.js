@@ -23,11 +23,18 @@ const getUserById = id => {
 
 const createUser = userData => {
   userData.id = users.length + 1;
-  users = [...users, userData];
+  users.push(userData);
   return userData;
 };
 
-const updateUserById = (id, userData) => {};
+const updateUserById = (id, userData) => {
+  let user = getUserById(id);
+  user = { ...user, ...userData };
+  users = users.filter(user => user.id !== id);
+  users.push(user);
+
+  return user;
+};
 
 const deleteUserById = id => {};
 

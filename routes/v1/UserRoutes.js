@@ -35,9 +35,15 @@ router.post('/', userMiddleware.validateUser, (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', userMiddleware.validateUser, (req, res) => {
+  const id = Number(req.params.id);
+  const userData = req.body;
+
+  const user = userController.updateUserById(id, userData);
+
   return res.status(200).json({
-    ok: true
+    ok: true,
+    result: user
   });
 });
 
