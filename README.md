@@ -1,5 +1,5 @@
 # Node API REST
-You can get more information about the endpoints [here]()
+You can get more information about the endpoints [here](https://nodeapirest.docs.apiary.io/#)
 
 ## Before start
 
