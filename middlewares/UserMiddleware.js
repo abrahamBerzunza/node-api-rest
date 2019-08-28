@@ -23,7 +23,7 @@ const validateUser = (req, res, next) => {
     });
   }
 
-  if (errors.length > 0) {
+  if (errors.length) {
     return res.status(400).json({
       ok: false,
       errors
