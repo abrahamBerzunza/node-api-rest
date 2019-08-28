@@ -16,7 +16,9 @@ const updateUserById = (id, userData) => {
   return userService.updateUserById(id, userData);
 };
 
-const deleteUserById = () => {};
+const deleteUserById = id => {
+  return userService.deleteUserById(id);
+};
 
 module.exports = {
   getAllUsers,

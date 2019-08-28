@@ -36,7 +36,9 @@ const updateUserById = (id, userData) => {
   return user;
 };
 
-const deleteUserById = id => {};
+const deleteUserById = id => {
+  users = users.filter(user => user.id !== id);
+};
 
 module.exports = {
   getAllUsers,

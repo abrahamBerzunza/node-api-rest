@@ -48,6 +48,9 @@ router.put('/:id', userMiddleware.validateUser, (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+  const id = Number(req.params.id);
+
+  userController.deleteUserById(id);
   return res.status(204).end();
 });
 
