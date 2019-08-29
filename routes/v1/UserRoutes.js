@@ -5,10 +5,6 @@ const userMiddleware = require('../../middlewares/UserMiddleware');
 router.get('/', (_req, res) => {
   const users = userController.getAllUsers();
 
-  if (!users.length) {
-    return res.status(404).end();
-  }
-
   return res.status(200).json({
     ok: true,
     results: users
@@ -19,13 +15,9 @@ router.get('/:id', (req, res) => {
   const id = Number(req.params.id);
   const user = userController.getUserById(id);
 
-  if (!user) {
-    return res.status(404).end();
-  }
-
   return res.status(200).json({
     ok: true,
-    result: user
+    result: user ? user : {}
   });
 });
 
@@ -36,7 +28,7 @@ router.post('/', userMiddleware.validateUser, (req, res) => {
 
   return res.status(201).json({
     ok: true,
-    results: user
+    result: user
   });
 });
 
