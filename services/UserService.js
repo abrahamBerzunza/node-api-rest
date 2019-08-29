@@ -28,12 +28,11 @@ const createUser = userData => {
 };
 
 const updateUserById = (id, userData) => {
-  let user = getUserById(id);
-  user = { ...user, ...userData };
-  users = users.filter(user => user.id !== id);
-  users.push(user);
+  const userIndex = users.findIndex(user => user.id === id);
+  const updatedUser = { ...users[userIndex], ...userData };
+  users[userIndex] = updatedUser;
 
-  return user;
+  return updatedUser;
 };
 
 const deleteUserById = id => {
